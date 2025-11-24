@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>3 Páginas em Bootstrap — Navegação por Botões</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      /* estilos simples para transição entre "páginas" */
+      .page { display: none; }
+      .page.active { display: block; }
+      .fade-in { animation: fadeIn 250ms ease-in; }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+    <style>
+      /* Dark Mode */
+      body.dark-mode { background-color: #121212; color: #e0e0e0; }
+      body.dark-mode .card { background-color: #1e1e1e; }
+      body.dark-mode .navbar { background-color: #000 !important; }
+
+      /* Transition Pages */
+      .page { display: none; opacity: 0; transition: opacity .3s ease; }
+      .page.active { display: block; opacity: 1; }
+
+      /* Banner */
+      .banner {
+        background:url('https://picsum.photos/1200/350?game') center/cover no-repeat;
+        border-radius:1rem;
+        height:350px;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+
+    <!-- LANDING PAGE / HOME -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" data-target="pageHome">GameWorld</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#" data-target="pageHome">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-target="page1">Clássicos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-target="page2">Modernos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-target="page3">Indies</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container py-5">
+
+      <!-- LANDING PAGE CONTENT -->
+      <section id="pageHome" class="page active">
+        <div class="banner mb-4 shadow-sm"></div>
+        <div class="p-5 bg-white rounded-3 shadow-sm">
+          <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Bem-vindo ao GameWorld</h1>
+            <p class="col-md-9 fs-5 mt-3">Explore jogos clássicos, modernos e indies. Agora com imagens, cards, animações e modo escuro!</p>
+            <button class="btn btn-primary btn-lg mt-3 me-2" data-target="pageForm">Fale Conosco</button>
+            <button class="btn btn-dark btn-lg mt-3" id="darkToggle">Alternar Tema</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Página 1 -->
+      <section id="page1" class="page">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h1 class="card-title">Página 1 — Jogos Clássicos</h1>
+            <p>Alguns clássicos marcantes:</p>
+
+            <div class="row g-3">
+              <div class="col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm"><a href="#" data-target="pageForm"><img src="https://picsum.photos/300/200?mario" class="card-img-top"></a><div class="card-body"><h5>Super Mario Bros</h5></div></div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm"><a href="#" data-target="pageForm"><img src="https://picsum.photos/300/200?zelda" class="card-img-top"></a><div class="card-body"><h5>Zelda</h5></div></div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm"><a href="#" data-target="pageForm"><img src="https://picsum.photos/300/200?pacman" class="card-img-top"></a><div class="card-body"><h5>Pac-Man</h5></div></div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm"><a href="#" data-target="pageForm"><img src="https://picsum.photos/300/200?sonic" class="card-img-top"></a><div class="card-body"><h5>Sonic</h5></div></div>
+              </div>
+            </div>
+
+            <button class="btn btn-primary mt-3" data-target="page2">Ir para Página 2</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Página 2 -->
+      <section id="page2" class="page">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h1 class="card-title">Página 2 — Jogos Modernos</h1>
+            <p>Jogos atuais famosos:</p>
+
+            <div class="row g-3">
+              <div class="col-md-6 col-lg-3"><div class="card shadow-sm h-100"><a href="#" data-target="pageForm"><img src="https://picsum.photos/300/200?elden" class="card-img-top"></a><div class="card-body"><h5>Elden Ring</h5></div></div></div>
+              <div class="col-md-6 col-lg-3"><div class="card shadow-sm h-100"><a href="#" data-target="pageForm"><img src="https://picsum.photos/300/200?fortnite" class="card-img-top"></a><div class="card-body"><h5>Fortnite</h5></div></div></div>
+              <div class="col-md-6 col-lg-3"><div class="card shadow-sm h-100"><a href="#" data-target="pageForm"><img src="https://picsum.photos/300/200?valorant" class="card-img-top"></a><div class="card-body"><h5>Valorant</h5></div></div></div>
+              <div class="col-md-6 col-lg-3"><div class="card shadow-sm h-100"><a href="#" data-target="pageForm"><img src="https://picsum.photos/300/200?witcher" class="card-img-top"></a><div class="card-body"><h5>The Witcher 3</h5></div></div></div>
+            </div>
+
+            <button class="btn btn-primary mt-3" data-target="page3">Ir para Página 3</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Página 3 -->
+      <section id="page3" class="page">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h1 class="card-title">Página 3 — Jogos Indies</h1>
+            <p>Indies de destaque:</p>
+
+            <div class="row g-3">
+              <div class="col-md-6 col-lg-3"><div class="card h-100 shadow-sm"><a href="#" data-target="pageForm"><img src="https://picsum.photos/300/200?hollow" class="card-img-top"></a><div class="card-body"><h5>Hollow Knight</h5></div></div></div>
+              <div class="col-md-6 col-lg-3"><div class="card h-100 shadow-sm"><a href="#" data-target="pageForm"><img src="https://picsum.photos/300/200?stardew" class="card-img-top"></a><div class="card-body"><h5>Stardew Valley</h5></div></div></div>
+              <div class="col-md-6 col-lg-3"><div class="card h-100 shadow-sm"><a href="#" data-target="pageForm"><img src="https://picsum.photos/300/200?celeste" class="card-img-top"></a><div class="card-body"><h5>Celeste</h5></div></div></div>
+              <div class="col-md-6 col-lg-3"><div class="card h-100 shadow-sm"><a href="#" data-target="pageForm"><img src="https://picsum.photos/300/200?hades" class="card-img-top"></a><div class="card-body"><h5>Hades</h5></div></div></div>
+            </div>
+
+            <button class="btn btn-primary mt-3" data-target="pageHome">Voltar ao Início</button>
+          </div>
+        </div>
+      </section>
+
+          <!-- FORMULÁRIO DE CONTATO -->
+      <section id="pageForm" class="page">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h1 class="card-title mb-3">Contato</h1>
+            <p class="card-text">Envie uma mensagem e retornaremos o mais rápido possível.</p>
+            <form>
+              <div class="mb-3">
+                <label class="form-label">Nome</label>
+                <input type="text" class="form-control" placeholder="Seu nome" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" placeholder="email@exemplo.com" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Mensagem</label>
+                <textarea class="form-control" rows="4" placeholder="Sua mensagem..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Enviar</button>
+              <button type="button" class="btn btn-outline-secondary ms-2" data-target="pageHome">Voltar</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="text-center py-4 small text-muted">
+      Feito com Bootstrap — clique nos botões para navegar entre as páginas.
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Função que mostra a "página" com id passado e atualiza o histórico do navegador
+      function showPage(id, pushState = true) {
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(p => {
+          p.classList.remove('active', 'fade-in');
+        });
+        const target = document.getElementById(id);
+        if (!target) return;
+        target.classList.add('active', 'fade-in');
+
+        // Atualiza hash na URL (sem recarregar). Útil para linkar páginas.
+        if (pushState) {
+          history.pushState({ page: id }, '', '#' + id);
+        }
+      }
+
+      // Delegação de evento para todos os botões que navegam
+      document.addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-target]');
+        if (!btn) return;
+        const id = btn.getAttribute('data-target');
+        showPage(id);
+      });
+
+      // Se o usuário usar voltar/avançar do navegador, mantém a página correta
+      window.addEventListener('popstate', (e) => {
+        const pageId = (e.state && e.state.page) || location.hash.replace('#', '') || 'page1';
+        showPage(pageId, false);
+      });
+
+      // Ao carregar, verifica hash para abrir a página correta
+      document.addEventListener('DOMContentLoaded', () => {
+        const initial = location.hash.replace('#', '') || 'page1';
+        // Substitui o estado inicial para que popstate funcione corretamente
+        history.replaceState({ page: initial }, '', '#' + initial);
+        showPage(initial, false);
+      });
+    </script>
+      <script>
+      // Navigation buttons (navbar and page buttons)
+      document.querySelectorAll('[data-target]').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+          const target = btn.getAttribute('data-target');
+          document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+          document.getElementById(target).classList.add('active');
+          window.scrollTo({ top:0, behavior:'smooth' });
+        });
+      });
+
+      // Toggle dark mode
+      document.addEventListener('DOMContentLoaded',()=>{
+        document.getElementById('darkToggle').addEventListener('click',()=>{
+          document.body.classList.toggle('dark-mode');
+        });
+      });
+    </script>
+  </body>
+</html>
